@@ -15,24 +15,22 @@
  */
 class Solution {
     public boolean isSymmetric(TreeNode root) {
-        List<Integer> left = traverse(root.left, true);
-        List<Integer> right = traverse(root.right, false);
-        return left.equals(right);
+        return traverse(root.left, true).equals(traverse(root.right, false));
     }
 
-    public static List<Integer> traverse(TreeNode root, boolean left) {
+    public String traverse(TreeNode root, boolean left) {
         if (root == null) {
-            return List.of(0);
+            return " ";
         }
-        List<Integer> result = new ArrayList<>();
+        String result = "";
         if (left) {
-            result.addAll(traverse(root.left,true));
-            result.addAll(traverse(root.right, false));
+            result += traverse(root.left,true);
+            result += traverse(root.right, false);
         } else {
-            result.addAll(traverse(root.right, false));
-            result.addAll(traverse(root.left,true));
+            result += traverse(root.right, false);
+            result += traverse(root.left,true);
         }
-        result.add(root.val);
+        result  +=  root.val;
         return result;
     }
 }

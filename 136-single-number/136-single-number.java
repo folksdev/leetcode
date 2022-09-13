@@ -11,6 +11,6 @@ class Solution {
                 s.add(nums[i]);
             }
         }
-        return Optional.ofNullable(s.get(0)).orElse(0);
+        return s.get(0);
     }
 }

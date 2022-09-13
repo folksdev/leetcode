@@ -18,11 +18,11 @@ class Solution {
 
     //Alternative
     public int singleNumber(int[] nums) {
-        Map<Integer, Long> map = Arrays.stream(nums)
-                .boxed()
-                .collect(Collectors.groupingBy(e -> e, Collectors.counting()));
         
-        return map.entrySet()
+        return Arrays.stream(nums)
+                .boxed()
+                .collect(Collectors.groupingBy(e -> e, Collectors.counting()))
+                .entrySet()
                 .stream()
                 .filter(e -> e.getValue() == 1)
                 .findFirst()

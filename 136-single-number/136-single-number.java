@@ -25,8 +25,8 @@ class Solution {
         return map.entrySet()
                 .stream()
                 .filter(e -> e.getValue() == 1)
+                .findFirst()
                 .map(Map.Entry::getKey)
-                .toList()
-                .get(0);
+                .orElse(-1);
     }
 }

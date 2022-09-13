@@ -18,12 +18,15 @@ class Solution {
 
     //Alternative
     public int singleNumber(int[] nums) {
-        Map<Integer, Long> map = Arrays.stream(nums).boxed().collect(Collectors.groupingBy(e -> e, Collectors.counting()));
-        for (Map.Entry<Integer, Long> e: map.entrySet()) {
-            if (e.getValue() == 1) {
-                return e.getKey();
-            }
-        }
-        return -1;
+        Map<Integer, Long> map = Arrays.stream(nums)
+                .boxed()
+                .collect(Collectors.groupingBy(e -> e, Collectors.counting()));
+        
+        return map.entrySet()
+                .stream()
+                .filter(e -> e.getValue() == 1)
+                .map(Map.Entry::getKey)
+                .toList()
+                .get(0);
     }
 }

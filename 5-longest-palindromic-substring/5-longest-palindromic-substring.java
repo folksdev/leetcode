@@ -1,6 +1,6 @@
 class Solution {
     public String longestPalindrome(String s) {
-        if (s.length() <= 1) {
+        if (s.length() <= 1 || isPalindrome(s)) {
             return s;
         }
         String result = "";
@@ -9,9 +9,6 @@ class Solution {
             for (int j = substring.length(); j >= 0; j--){
                 substring = substring.substring(0,j);
                 if (isPalindrome(substring)){
-                    if (substring.length() == s.length()) {
-                        return s;
-                    }
                     if (substring.length() > result.length()) {
                         result = substring;
                     }

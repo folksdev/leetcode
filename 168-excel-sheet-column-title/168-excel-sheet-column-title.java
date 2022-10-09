@@ -1,5 +1,5 @@
 class Solution {
-    public String convertToTitle2(int columnNumber) { //%100 fast
+    public String convertToTitle(int columnNumber) { //%100 fast
         StringBuilder result = new StringBuilder();
         while (columnNumber > 0) {
             columnNumber--;
@@ -10,7 +10,7 @@ class Solution {
         return result.toString();
     }
     
-    public static String convertToTitle(int columnNumber) { //
+    public static String convertToTitle2(int columnNumber) { //%20 fast - alternative
         return new StringBuilder(recursive(columnNumber)).reverse().toString();
     }
 

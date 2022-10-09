@@ -1,5 +1,5 @@
 class Solution {
-    public String convertToTitle(int columnNumber) {
+    public String convertToTitle2(int columnNumber) {
         StringBuilder result = new StringBuilder();
         while (columnNumber > 0) {
             columnNumber--;
@@ -8,5 +8,18 @@ class Solution {
         }
 
         return result.toString();
+    }
+    
+    public static String convertToTitle(int columnNumber) {
+        return new StringBuilder(recursive(columnNumber)).reverse().toString();
+    }
+
+    public static String recursive(int columnNumber) {
+        if (columnNumber == 0) {
+            return "";
+        }
+            columnNumber--;
+        return (char) ((columnNumber % 26) + 65) +
+                recursive(columnNumber / 26);
     }
 }

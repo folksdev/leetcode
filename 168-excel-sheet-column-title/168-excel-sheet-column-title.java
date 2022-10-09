@@ -18,7 +18,7 @@ class Solution {
         if (columnNumber == 0) {
             return "";
         }
-            columnNumber--;
+        columnNumber--;
         return (char) ((columnNumber % 26) + 65) +
                 recursive(columnNumber / 26);
     }
